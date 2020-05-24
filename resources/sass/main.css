@@ -1,0 +1,9 @@
+table {
+    border-radius: 15px;
+}
+td {
+    vertical-align: middle !important;
+}
+.custom {
+    width: 100px !important;
+}
