@@ -59,13 +59,32 @@
                                 <input type="text" class="form-control" name="comment" id="comment" value="{{$printer->comment}}">
                             </td>
                         </tr>
-                        <tr>
+{{--                        <tr>
                             <th class="w-25 text-right border-right align-middle">Скрипт:</th>
                             <td>
 
                                 <input type="text" class="form-control" name="file" id="file" value="{{$printer->file}}">
                             </td>
-                        </tr>
+                        </tr>--}}
+                        @if ($printer->file == null)
+                            <tr>
+                                <th class="w-25 text-right border-right align-middle">Скрипт:</th>
+                                <td>
+                                    <input type="file" class="form-control-file" name="file" id="image">
+                                </td>
+                            </tr>
+                        @else
+                            <tr>
+                                <th class="w-25 text-right border-right align-middle">Скрипт:</th>
+                                <td class="text-left"><a href="{{asset('/storage/scripts/'.$printer->file)}}">{{$printer->file}}</a></td>
+                            </tr>
+                            <tr>
+                                <th class="w-25 text-right border-right align-middle">Загрузить новый скрипт:</th>
+                                <td>
+                                    <input type="file" class="form-control-file" name="file" id="file">
+                                </td>
+                            </tr>
+                        @endif
 
 
 

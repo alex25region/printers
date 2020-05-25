@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Models\Printer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,9 @@ class FrontController extends Controller
      */
     public function index()
     {
-        //
+        $printers = Printer::with('getModel')->orderBy('ipaddress')->get();
+        //dd($printers);
+        return view('front', compact('printers'));
     }
 
     /**

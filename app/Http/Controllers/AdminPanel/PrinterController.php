@@ -41,7 +41,31 @@ class PrinterController extends Controller
      */
     public function store(Request $request)
     {
-        Printer::create($request->all());
+        if ($request->file == null) {
+            $requestData = $request->all();
+            $requestData['file'] = null;
+
+            Printer::create($requestData);
+        }
+        else {
+            if ($request->hasFile('file')) {
+                $a = $request->file->getClientOriginalExtension();
+
+                // Формируем имя:
+                $name = str_replace(' ', '_', $request->name) . ".$a";
+
+                // Сохраняем файл:
+                $request->file->storeAs('scripts', $name, 'public');
+
+                $requestData = $request->all();
+                $requestData['file'] = $name;
+
+                Printer::create($requestData);
+            }
+        }
+
+
+        //Printer::create($request->all());
         return redirect()->route('admin.printers.index')->with('success', 'Record created!');
     }
 

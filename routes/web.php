@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+Route::get('/', 'Front\FrontController@index');
 
 Auth::routes([
     'reset' => false,
@@ -30,6 +31,7 @@ $groupData = [
 ];
 
 Route::group($groupData, function () {
+    Route::get('/', 'DashboardController@index')->name('dashboard');
     Route::resource('printers', 'PrinterController')->names('admin.printers');
     Route::resource('models', 'ModelPrinterController')->names('admin.models');
 

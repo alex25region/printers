@@ -50,7 +50,8 @@
                     @else
                     <td><img src="{{asset('/storage/images/default.png')}}" alt="no image" width="50" ></td>
                     @endif
-                    <td>{{$printer->file}}</td>
+{{--                    <td>{{$printer->file}}</td>--}}
+                    <td><a href="{{asset('/storage/scripts/'.$printer->file)}}" target="_blank">{{$printer->file}}</a></td>
                     <td>
                         <div class="btn-group" role="group">
 {{--                            <a href="{{ route('admin.printers.index', $printer->id)}}" title="Show" >--}}
@@ -72,11 +73,6 @@
             @endforeach
         </table>
 </div>
-{{--        <div class="card-footer d-flex">--}}
-{{--            <div class="mx-auto mt-2">--}}
-{{--                {{$printers->links()}}--}}
-{{--            </div>--}}
-{{--        </div>--}}
 
     </div>
 </div>

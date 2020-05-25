@@ -6,7 +6,7 @@
                         <h3>Создание принтера</h3>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('admin.printers.store') }}" method="post">
+                        <form action="{{ route('admin.printers.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <table class="table table-borderless text-nowrap text-center">
                                 <tbody>
@@ -57,13 +57,9 @@
                                 <tr>
                                     <th class="w-25 text-right border-right align-middle">Скрипт:</th>
                                     <td>
-
-                                        <input type="text" class="form-control" name="file" id="file">
+                                        <input type="file" class="form-control-file" name="file" id="file">
                                     </td>
                                 </tr>
-
-
-
 
                                 </tbody>
                             </table>

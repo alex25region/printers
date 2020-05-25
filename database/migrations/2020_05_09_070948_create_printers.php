@@ -18,10 +18,10 @@ class CreatePrinters extends Migration
             $table->unsignedBigInteger('model_id');
             $table->string('ipaddress')->unique();
             $table->string('name')->unique();
-            $table->string('inv_number');
-            $table->string('description');
-            $table->text('comment');
-            $table->string('file');
+            $table->string('inv_number')->nullable();
+            $table->string('description')->nullable();
+            $table->text('comment')->nullable();
+            $table->string('file')->nullable();
             $table->timestamps();
 
             $table->foreign('model_id')->references('id')->on('model_printers');
