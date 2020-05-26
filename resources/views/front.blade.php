@@ -18,9 +18,8 @@
                 </div>
                 <table id="maintable" class="table table-sm table-striped table-hover text-center my-2 ">
                     <tr class="thead-dark">
-
-                        <th>Модель</th>
                         <th>IP-адрес</th>
+                        <th>Модель</th>
                         <th>Наименование принтера</th>
                         <th>Инвентарный номер</th>
                         <th>Описание</th>
@@ -30,10 +29,8 @@
                     </tr>
                     @foreach($printers as $printer)
                         <tr class="border-bottom searchable">
-
-                            {{--                    <td>{{$printer->model_id}}</td>--}}
-                            <td>{{$printer->getModel->model}}</td>
                             <td><b>{{$printer->ipaddress}}</b></td>
+                            <td>{{$printer->getModel->model}}</td>
                             <td>{{$printer->name}}</td>
                             <td>{{$printer->inv_number}}</td>
                             <td>{{$printer->description}}</td>
@@ -51,8 +48,9 @@
 {{--                                </form>--}}
 {{--                                    @csrf--}}
 {{--                                    @method('DELETE')--}}
-                                    <button class="btn btn-sm btn-outline-danger" >Установить</button>
+{{--                                    <button type="submit" class="btn btn-sm btn-outline-danger" onclick="{{route('test')}}">Установить</button>--}}
 
+                                <a class="btn btn-sm btn-outline-secondary" href="{{action('Front\FrontController@test')}}">Установить</a>
                             </td>
                         <tr>
                     @endforeach

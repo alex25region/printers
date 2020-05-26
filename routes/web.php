@@ -15,6 +15,8 @@
     return view('welcome');
 });*/
 Route::get('/', 'Front\FrontController@index');
+Route::get('/test', 'Front\FrontController@test')->name('test');
+//Route::resource('front', 'Front\FrontController')->names('front');
 
 Auth::routes([
     'reset' => false,
