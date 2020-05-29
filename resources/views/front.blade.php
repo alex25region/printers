@@ -24,7 +24,7 @@
                         <th>Инвентарный номер</th>
                         <th>Описание</th>
                         <th>Комментарий</th>
-                        <th>Image</th>
+                        <th>Фото</th>
                         <th>Скрипт</th>
                     </tr>
                     @foreach($printers as $printer)
@@ -50,7 +50,7 @@
 {{--                                    @method('DELETE')--}}
 {{--                                    <button type="submit" class="btn btn-sm btn-outline-danger" onclick="{{route('test')}}">Установить</button>--}}
 
-                                <a class="btn btn-sm btn-outline-secondary" href="{{action('Front\FrontController@test')}}">Установить</a>
+                                <a class="btn btn-sm btn-outline-secondary" href="{{route('printer', $printer->id)}}">Выбрать</a>
                             </td>
                         <tr>
                     @endforeach

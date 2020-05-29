@@ -15,7 +15,8 @@
     return view('welcome');
 });*/
 Route::get('/', 'Front\FrontController@index');
-Route::get('/test', 'Front\FrontController@test')->name('test');
+Route::get('/printer/{id}', 'Front\FrontController@printer')->name('printer');
+Route::get('/printer/{id}/install', 'Front\FrontController@installprinter')->name('installprinter');
 //Route::resource('front', 'Front\FrontController')->names('front');
 
 Auth::routes([

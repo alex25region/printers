@@ -20,13 +20,29 @@ class FrontController extends Controller
         return view('front', compact('printers'));
     }
 
-    public function test()
+    public function printer($id)
     {
-        //dd(__METHOD__);
-        
+        //dd($request->all());
+        $printer = Printer::findOrFail($id);
+        //dd($printer);
+        //dd($printer->getModel->model);
+
+        return view('installprinter', compact('printer'));
+    }
+
+    public function installprinter(Request $request, $id)
+    {
+        $comp = $request->comp;
+        //dd($comp);
+
+        $p = Printer::findorfail($id);
+        //dd($p);
 
 
-        //return redirect()->back();
+
+
+
+
     }
 
 
